@@ -1,0 +1,187 @@
+body{
+    font-family: "Plus Jakarta Sans",sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-bottom: 20px !important;
+}
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color: #d21f2b ;
+    font-size: 1.5rem ;
+}
+
+.nav-link{
+    color: 222222 !important;
+} 
+
+.f-info-links a {
+    text-decoration: none;
+    color: 222222;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+.f-info-links ,
+.f-info-socials,
+.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: rgb(178, 170, 170);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400  !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+ 
+.btn{
+    background-color: #d21f2b !important;
+    border:none !important;
+    margin-bottom: 20px !important;
+}
+
+.heading{
+    text-align: center;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.show-img{
+    height: 30vh;
+}
+
+
+.btns{
+    display: flex;
+}
+.edit-btn{
+    background-color: rgb(15, 15, 219) !important;
+    width: 90px;
+}
+
+.add-btn{
+    width: 90px;
+    background-color: rgb(28, 193, 28) !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.edit-btn:hover {
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.delete-btn:hover{
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.add-btn:hover{
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.review-btn{
+    background-color: rgb(217, 224, 224) !important;
+    color: rgb(20, 11, 11) !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.review-btn:hover{
+    background-color: rgb(52, 50, 50) !important;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+    color: aliceblue !important;
+    transform: scale(1.1) !important; 
+}
+.delete-btn{
+    border: none;
+}
+.delete-btn:hover{
+    border: none;
+    transform: scale(1.1) !important; 
+}
+
+.flash-para{
+    text-align: center !important;
+    font-size: larger;
+    color: rgb(142, 96, 10);
+}
+
+.signup-btn{
+    width: 90px;
+    background-color: rgb(28, 193, 28) !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.signup-btn:hover{
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+    transform: scale(1.1) !important; 
+}
+.login-btn{
+    width: 90px;
+    background-color: rgb(28, 193, 28) !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.login-btn:hover{
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5) !important;
+    transform: scale(1.1) !important; 
+}
