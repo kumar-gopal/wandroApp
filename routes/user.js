@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/models.user.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
-const {saveRedirectUrl} = require("../middleware.js")
+const {saveRedirectUrl} = require("../middleware/auth.middleware.js")
 
 router.get("/signup",(req,res)=>{
     res.render("users/signup.ejs")
@@ -42,6 +42,8 @@ router.post("/login",
     (req,res)=>{ 
     req.flash("success","Welcome Back to Wandro!");
     let redirectUrl = res.locals.redirectUrl || "./listings";
+    console.log("target url is ",redirectUrl);
+    
     res.redirect(redirectUrl);
 });
    

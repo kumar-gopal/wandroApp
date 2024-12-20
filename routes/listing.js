@@ -4,7 +4,7 @@ const Listing = require("../models/models.listing");
 const ExpressError = require("../utils/ExpressError.js");
 const wrapAsync = require("../utils/wrapAsync.js")
 const {listingSchema} = require("../schema.js");
-const {isLoggedIn} = require("../middleware.js");
+const {isLoggedIn} = require("../middleware/auth.middleware.js");
 const { upload } = require("../middleware/multer.middleware.js");
 const {
     getAllUser,
@@ -58,15 +58,23 @@ router.post(
 
 // edit
 router.get("/:id/edit",
-    isLoggedIn,editListing);
+    isLoggedIn,
+    editListing
+);
 
 // update
 
-router.put("/:id",upload.single("listing[image]"),validateListing, updateListing);
+router.put("/:id",
+    upload.single("listing[image]"),
+    validateListing, 
+    updateListing
+);
 
 // delete listing
 router.delete("/:id", 
-    isLoggedIn,deleteListing);
+    isLoggedIn,
+    deleteListing
+);
 
 router.get("/:id",getListingwithId);
 

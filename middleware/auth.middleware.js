@@ -1,6 +1,6 @@
 module.exports.isLoggedIn = (req,res,next)=>{
     if(!req.isAuthenticated()){
-        // req.flash("error","you must have logged in")
+        req.flash("error","you must have logged in")
         req.session.redirectUrl = req.originalUrl;
         return res.redirect("/login");
     }
@@ -9,6 +9,7 @@ module.exports.isLoggedIn = (req,res,next)=>{
 
 module.exports.saveRedirectUrl = (req,res,next)=>{
     if(req.session.redirectUrl){
+        delete req.session.returnTo; // Clear the stored URL after redirect
         res.locals.redirectUrl = req.session.redirectUrl;
     }
     next();

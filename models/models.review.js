@@ -1,3 +1,4 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
 
@@ -12,7 +13,8 @@ const reviewSchema = new Schema({
     createdAt : {
         type:Date,
         default : Date.now,
-    }
+    },
+    reviewedBy : String,
 });
 
 
