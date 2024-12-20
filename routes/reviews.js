@@ -24,7 +24,6 @@ router.post("/",validateReview,wrapAsync(async(req,res)=>{
     let {id} = req.params
     const listing = await Listing.findById(id);
     
-    
     if(!listing){
         throw new ExpressError(400,"Listing is required");
     }
@@ -33,6 +32,8 @@ router.post("/",validateReview,wrapAsync(async(req,res)=>{
 
    await listing.save();
    await review.save();
+   
+   
    console.log("review is created");
    req.flash("success", "Review is created successfully!");
    res.redirect(`/listings/${listing._id}`);

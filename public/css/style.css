@@ -1,9 +1,11 @@
+
 body{
     font-family: "Plus Jakarta Sans",sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin-bottom: 20px !important;
+    background-color: black;
 }
 .container{
     flex: 1;

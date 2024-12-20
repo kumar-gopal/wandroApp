@@ -15,12 +15,8 @@ const listingSchema = new Schema(
       trim: true,
     },
     image: {
-      type: String,
-      default: "https://unsplash.com/photos/person-walking-towards-house-z9hvkSDWMIM",
-      set: (v)=> 
-        v === "" 
-      ? "https://unsplash.com/photos/person-walking-towards-house-z9hvkSDWMIM" 
-      : v,
+      url : String,
+      fileName : String
     },
     price: {
       type: Number,

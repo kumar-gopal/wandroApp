@@ -348,12 +348,7 @@ const allsampleListings = [
       country: "Costa Rica",
     },
   ];
-  const updatedListings = allsampleListings.map(listing => ({
-    ...listing,
-    image: listing.image.url,
-  }));
-  
-  // console.log(updatedListings);
+ 
   
   
-  module.exports = { data: updatedListings };
+  module.exports = { data: allsampleListings };
