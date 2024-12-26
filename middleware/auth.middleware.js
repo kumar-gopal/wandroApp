@@ -9,7 +9,6 @@ module.exports.isLoggedIn = (req,res,next)=>{
 
 module.exports.saveRedirectUrl = (req,res,next)=>{
     if(req.session.redirectUrl){
-        delete req.session.returnTo; // Clear the stored URL after redirect
         res.locals.redirectUrl = req.session.redirectUrl;
     }
     next();

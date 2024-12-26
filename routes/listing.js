@@ -12,7 +12,8 @@ const {
     updateListing,
     editListing,
     deleteListing,
-    getListingwithId
+    getListingwithId,
+    newformrendering
 } = require("../controllers/listing.controllers.js");
 
 
@@ -34,16 +35,11 @@ const validateListing = (req,res,next)=>{
 router.get("/", getAllUser);
 
 
-
-
 // create Listing
 router.get("/new",
     isLoggedIn,
-    (req,res)=>{
-    res.render("./listing/new.ejs");
-});
-
-
+    newformrendering
+);
 
 
 // 

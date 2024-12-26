@@ -49,15 +49,16 @@
                   add some comment
               </div>
               </div>
-              <button class="btn btn-outline review-btn">Submit</button>
+              <%if(currUser){%>
+                <button class="btn btn-outline review-btn">Comment</button>
+            <% } %>
+              
   
           </div>
           </form>
           <p><b>All Reviews</b></p>
           <hr>
-            <%if(currUser){%>
-              <p>hello -> <%= currUser %></p>
-          <% } %>
+    
           <div class="row">
           <% for(let review of listing.reviews) {%>
              %>
@@ -68,11 +69,16 @@
                  <p><%= review.comment %></p>
                   <!-- <p><b></b> <i class="fa-solid fa-star"></i></p> -->
                   <p class="starability-result" data-rating="<%=review.rating%>"></p>
-              </div>
-               <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%=review._id%>?_method=DELETE">
-                <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
-               </form>
-            </div>
+                </div>
+                
+                    <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%=review._id%>?_method=DELETE">
+                      <% if(currUser && (currUser._id.equals(review.userId))){ %>
+                        <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+                      <% } %>
+                    </form>
+                </div>
+                  
+              
           <% } %>
         </div>
       </div>

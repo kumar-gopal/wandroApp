@@ -2,7 +2,9 @@ const Listing = require("../models/models.listing");
 
 const { uploadImageOnCloudinary } = require("../config/cloudnary.js")
 
-
+const newformrendering = (req,res)=>{
+    res.render("./listing/new.ejs");
+}
 const creatNewListing = async(req, res, next) => {
     try {
       // If no file is uploaded
@@ -13,7 +15,7 @@ const creatNewListing = async(req, res, next) => {
 
       // Upload the file to Cloudinary
       const cloudinaryResponse = await uploadImageOnCloudinary(req.file.path);
-      console.log(cloudinaryResponse);
+    //   console.log(cloudinaryResponse);
       
 
       if (!cloudinaryResponse) {
@@ -142,5 +144,6 @@ module.exports = {
     editListing,
     updateListing,
     deleteListing,
-    getListingwithId
+    getListingwithId,
+    newformrendering
 }

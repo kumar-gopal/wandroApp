@@ -5,11 +5,10 @@ const Listing = require("../models/models.listing")
 const wrapAsync = require("../utils/wrapAsync.js")
 const ExpressError = require("../utils/ExpressError.js");
 const {reviewSchema} = require("../schema.js");
-const {isLoggedIn} = require("../middleware/auth.middleware.js")
 
 
-// validate middleware for reviews
-const validateReview = (req,res,next)=>{
+
+validateReview = (req,res,next)=>{
     let {error} = reviewSchema.validate(req.body);
     if(error){
         let errMsg = error.details.map((el)=>el.message).join(",");
@@ -20,34 +19,9 @@ const validateReview = (req,res,next)=>{
 }
 
 
-// post  review route
-// router.post("/",validateReview,wrapAsync(async(req,res)=>{
-//     await Review.deleteMany({});
-//     let {id} = req.params
-//     const listing = await Listing.findById(id);
-    
-//     if(!listing){
-//         throw new ExpressError(400,"Listing is required");
-//     }
-//     const review = new Review(req.body.review);
-//     listing.reviews.push(review);
-//     console.log(req.user);
-    
-//     review.reviewedBy = req.user.username,
-//    await listing.save();
-//    await review.save();
-   
-   
-//    console.log("review is created");
-//    req.flash("success", "Review is created successfully!");
-//    res.redirect(`/listings/${listing._id}`);
-// }));
-
 router.post("/", 
-    isLoggedIn,
     validateReview, 
     wrapAsync(async (req, res) => {
-    console.log(req.user);
     const { id } = req.params;
 
     // Fetch the listing by ID
@@ -68,15 +42,11 @@ router.post("/",
     // Create and associate review
     const review = new Review(req.body.review);
     review.reviewedBy = req.user.username;
+    review.userId = req.user._id;
     listing.reviews.push(review);
 
     await review.save();
     await listing.save();
-
-    // console.log("Review is created\n",req.body);
-    console.log("Review is created\n",req.user);
-    console.log("Review is created\n",req.user.username);
-    console.log("end");
     
     req.flash("success", "Review is created successfully!");
     res.redirect(`/listings/${listing._id}`);
