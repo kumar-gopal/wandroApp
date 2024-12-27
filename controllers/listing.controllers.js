@@ -102,7 +102,7 @@ const updateListing = async (req, res) => {
             return res.status(404).send("Listing not found");
         }
         req.flash("success", "Listing is Updated successfully!");
-        console.log("Updated successfully:-\n",updatedListing);
+        // console.log("Updated successfully:-\n",updatedListing);
         
         res.redirect(`/listings/${updatedListing._id}`);
     } catch (error) {
@@ -118,7 +118,7 @@ const deleteListing = async (req, res) => {
         req.flash("success", "Listing is Deleted successfully!");
         res.redirect("/listings"); // Absolute path for redirection
     } catch (err) {
-        console.error("Error deleting listing:", err);
+        // console.error("Error deleting listing:", err);
         res.status(500).send("Internal Server Error");
     }
 }
@@ -126,7 +126,7 @@ const getListingwithId = async(req,res,next)=>{
     try {
         let {id} = req.params;
         const listing = await Listing.findById(id).populate("reviews").populate("owner");
-        console.log(listing);
+        // console.log(listing);
         
         
         if(!listing){

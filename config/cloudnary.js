@@ -36,7 +36,7 @@ const uploadImageOnCloudinary = async (localImagePath) => {
     const endTime = Date.now();
 
     const uploadTime =endTime - startTime;
-    console.log(`Upload Time: ${uploadTime} ms`); // Log the upload time
+    // console.log(`Upload Time: ${uploadTime} ms`); // Log the upload time
 
     // File has been uploaded successfully to Cloudinary
     return response;
